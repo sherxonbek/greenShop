@@ -7,13 +7,14 @@ function Post() {
   const [postDetails, setPostDetails] = useState({});
   const [count, setCount] = useState(1);
   const [showToast, setShowToast] = useState(false);
+  const [likePost, setLikePost] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
     axios.get(`https://dummyjson.com/products/${id}`).then((res) => {
       setPostDetails(res.data)
       console.log(res.data);
-      
+
     })
   }, [id]);
 
@@ -55,13 +56,40 @@ function Post() {
     }, 3000);
   };
 
+  const loveBuyNow = () => {
+    const like = JSON.parse(localStorage.getItem('like')) || [];
+
+    const isExist = like.find(item => item.id === postDetails.id);
+
+    if (isExist) {
+      const updatedLike = like.map(item =>
+        item.id === postDetails.id ? { ...item } : item
+      );
+      localStorage.setItem('like', JSON.stringify(updatedLike));
+    } else {
+      const newItem = {
+        id: postDetails.id,
+        title: postDetails.title,
+        price: postDetails.price,
+        images: postDetails.images,
+        description: postDetails.description,
+      };
+      localStorage.setItem('like', JSON.stringify([...like, newItem]));
+    }
+    setLikePost(true);
+
+    setTimeout(() => {
+      setLikePost(false);
+    }, 3000);
+  };
+
 
   return (
     <div className='max-w-[480px] h-full relative rounded-2xl bg-gray-200'>
       <div>
         <img src={postDetails.images} alt="" className='w-full rounded-3xl object-cover p-[29px] relative' />
         <Link to={`/`}><ChevronLeft strokeWidth={1.25} className='absolute top-12 left-10 w-[35px] h-[35px] rounded-[50%] bg-white ' /></Link>
-        <Heart className='absolute top-12 right-10 w-[35px] h-[35px] rounded-[50%] bg-white p-1.5 text-green-400' />
+        <button onClick={loveBuyNow}><Heart className='absolute top-12 right-10 w-[35px] h-[35px] rounded-[50%] bg-white p-1.5 text-green-400' /></button>
       </div>
       <div className='w-full h-[504px]  bg-gray-100 rounded-t-3xl px-[25px]'>
         <p className='text-[20px]  font-medium mt-[34px]'>{postDetails.title}</p>
@@ -100,6 +128,17 @@ function Post() {
             </div>
             <span className='font-bold text-sm'>
               {count} ta mahsulot savatga qo'shildi!
+            </span>
+          </div>
+        </div>
+      )}
+      {likePost && (
+        <div className='fixed top-10 left-1/2 -translate-x-1/2 z-[100] animate-bounce'>
+          <div className='bg-green-500 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 border-2 border-white'>
+            <div className='bg-white text-green-500 rounded-full p-1'>
+            </div>
+            <span className='font-bold text-sm'>
+              Mahsulot likelar bo`limiga qo`shildi!!!
             </span>
           </div>
         </div>

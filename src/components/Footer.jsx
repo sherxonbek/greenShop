@@ -8,7 +8,7 @@ function Footer() {
 
     const isActiveArr = [
         { id: 'house', icon: House, position: 'top-[40px] left-[10px]' },
-        { id: 'heart', icon: Heart, position: 'top-[40px] left-[80px]' },
+        { id: 'heart', icon: Heart, position: 'top-[40px] left-[80px]', path: '/likes' },
         { id: 'card', icon: ShoppingCart, position: 'top-[40px] right-[80px]', path: '/cards' },
         { id: 'user', icon: User, position: 'top-[40px] right-[10px]' },
     ];

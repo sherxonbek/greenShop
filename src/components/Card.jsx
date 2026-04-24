@@ -31,13 +31,6 @@ function Cart() {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
 
-    // id: postDetails.id,
-    //     title: postDetails.title,
-    //         price: postDetails.price,
-    //             images: postDetails.images,
-    //                 description: postDetails.description,
-    //                     quantity: count
-
     return (
 
         <div className='w-full min-h-screen px-[28px] relative pb-[380px]' >
@@ -45,7 +38,7 @@ function Cart() {
             <div className='flex w-full mt-[33px] items-center text-center'>
                 <Link to={'/'}><ChevronLeft className='w-[33px] h-[33px] rounded-[50%] bg-gray-300 cursor-pointer' /></Link>
                 <div className='flex w-full justify-center'>
-                    <h1 className='text-[20px] font-medium'>Card</h1>
+                    <h1 className='text-[20px] font-medium'>Card Shop</h1>
                 </div>
             </div>
 
