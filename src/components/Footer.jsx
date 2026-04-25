@@ -7,21 +7,21 @@ function Footer() {
     const [isActive, setIsActive] = useState('house');
 
     const isActiveArr = [
-        { id: 'house', icon: House, position: 'top-[40px] left-[10px]' },
-        { id: 'heart', icon: Heart, position: 'top-[40px] left-[80px]', path: '/likes' },
-        { id: 'card', icon: ShoppingCart, position: 'top-[40px] right-[80px]', path: '/cards' },
-        { id: 'user', icon: User, position: 'top-[40px] right-[10px]' },
+        { id: 'house', icon: House, position: 'top-[40px] left-[10px] md:top-[80px] md:left-[20px]' },
+        { id: 'heart', icon: Heart, position: 'top-[40px] left-[80px] md:top-[80px] md:left-[160px]', path: '/likes' },
+        { id: 'card', icon: ShoppingCart, position: 'top-[40px] right-[80px] md:top-[80px] md:right-[160px]', path: '/cards' },
+        { id: 'user', icon: User, position: 'top-[40px] right-[10px] md:top-[80px] md:right-[20px]' },
     ];
 
 
     return (
-        <div className='fixed bottom-0 left-0 right-0 w-full max-w-[480px] h-[94px]  mx-auto z-50 bg-white'>
+        <div className='fixed bottom-0 left-0 right-0 w-full sm:max-w-[480px] md:max-w-[768px] h-[94px] md:h-[184px] mx-auto z-50 lg:hidden'>
 
-            <img src={Footers} alt="footer background" className='w-full h-full object-cover' />
+            <img src={Footers} className='w-full h-full object-cover' />
 
             <div className='absolute bottom-[35px] left-1/2 -translate-x-1/2'>
                 <ScanLine
-                    className='rounded-full p-4 w-[65px] h-[65px] bg-green-400 text-white shadow-lg'
+                    className='rounded-full p-4 w-[65px] h-[65px] md:w-[130px] md:h-[130px] md:mb-5 bg-green-400 text-white shadow-lg'
                 />
             </div>
 
@@ -37,7 +37,7 @@ function Footer() {
                 ${isActive === item.id ? 'text-green-600 scale-125' : 'text-gray-500'}
             `}
                     >
-                        <item.icon size={24} />
+                        <item.icon className='sm:size-[24px] md:size-[48px]' />
                     </Link>
                 ))}
             </div>

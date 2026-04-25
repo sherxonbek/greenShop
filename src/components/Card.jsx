@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
 
+
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCartItems(savedCart);
+
     }, []);
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
@@ -68,7 +70,7 @@ function Cart() {
                                     </button>
                                 </div>
 
-                                <button onClick={() => removeItem(item.id)} className='text-red-500 p-2'>
+                                <button onClick={() => removeItem(item.id)} className='text-red-500 p-2 relative'>
                                     <Trash2 size={20} />
                                 </button>
                             </div>

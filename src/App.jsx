@@ -10,7 +10,7 @@ import Like from './components/Like'
 
 function App() {
   return (
-    <div className='w-full max-w-[480px] flex flex-col m-auto min-h-screen relative'>
+    <div className='w-full sm:max-w-[480px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1536px] flex flex-col m-auto min-h-screen relative'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Root />}>

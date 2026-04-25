@@ -9,3 +9,7 @@
     -ms-overflow-style: none;  /* IE va Edge uchun */
     scrollbar-width: none;  /* Firefox uchun */
 }
+
+.footerimage {
+    background-color: rgba(0, 0, 0, 0);
+}
