@@ -20,7 +20,7 @@ function HeaderCamp() {
   }, []);
 
   return (
-    <div className='sm:hidden lg:block'>
+    <div className='hidden lg:block'>
       <div className='flex text-center items-center justify-between mx-8 mt-4 mb-0'>
         <div className='flex text-center items-center gap-2'>
           <Sprout className='size-8 w-12 h-12 border rounded-[50%] p-2 bg-green-400 text-white' />
